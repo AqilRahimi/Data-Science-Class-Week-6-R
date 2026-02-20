@@ -19,7 +19,7 @@ df[df$names=="Fufu",]
 
 #rbind(combining row), cbind(combining column)
 
-#2.ADD NEW ROWS
+#2.add rows
 newdf= rbind(df,data.frame(names = "Suuria",                            gender = "Female",
                            height = 156,
                            weight = 56,
@@ -36,7 +36,7 @@ newDf = rbind(df, data.frame(names = c("Suuria","Malik"),
 print("After Added rows:\n")
 print(newDf)
 
-#3.MERGE
+#3.merging
 gender = c("Female", "Male", "Male","Female","Male")
 height = c(160, 175, 173,156,169)
 weight = c(49, 89, 77,56,81)
@@ -51,32 +51,31 @@ df2 = data.frame(names, states)
 dfMerge= merge(df1, df2, by = "names", all= TRUE)
 View(dfMerge)
 
-#kena backup dulu before nak remove...
-#4.REMOVE ROW
+#4.removing rows
 newDf2 = newDf[-2,]
 newDf3 = newDf
 newDf3[1,"age"] <- 30
 newDf3[4, "height"] <- 152
 
-#5.REMOVE COLUMN 4
+#5.remove column 4
 newDf4 = newDf
 newDf4[,-4]
 
-#6.IMPORT DATAFRAME
+#6.import dataframe
 data_cv <- read.csv("C:/Users/HP/Desktop/algorithm-data-structure/data_science/DATASCIENCECLASS/my_covid.csv")
 summary(data_cv)
 
 #-seq is not including row number
-newdf<-data_cv[-seq(10,13), ] #maksudnya remove row 10 until 13
+newdf<-data_cv[-seq(10,13), ] 
 View(newdf)
 write.csv(newdf, "C:/Users/HP/Desktop/algorithm-data-structure/data_science/DATASCIENCECLASS/my_covid.csv")
 
-#7.MISSING VALUE
+#7.missing value
 df<- read.csv("C:/Users/HP/Desktop/algorithm-data-structure/data_science/DATASCIENCECLASS/NAexample.csv")
 a<-c(1:5, rep(NA,3),6:10)
 a
 sum(a)
-b<-a[!is.na(a)] #meaning not missing value (so takkan ada NA)
+b<-a[!is.na(a)] 
 b
 sum(b)
 
@@ -95,7 +94,7 @@ a
 #is.na(df) #whole dataframe
 #is.na(df[“VarA”]) #column
 
-#8.HANDLE MISSING VALUE
+#8.handling missing values
 library(readr)
 df<- read.csv("C:/Users/HP/Desktop/algorithm-data-structure/data_science/DATASCIENCECLASS/NAexample.csv")
 View(df)
@@ -104,7 +103,7 @@ df$VarB[is.na(df$VarB)]<-mean(df$VarB,na.rm=TRUE)
 df$VarC[is.na(df$VarC)]<-median(df$VarC,na.rm=TRUE)
 View(df)
 
-#9.REMOVE BAD VALUES
+#9.remove bad values
 library(readr)
 df_raw <- read.csv("C:/Users/HP/Desktop/algorithm-data-structure/data_science/DATASCIENCECLASS/file1.csv")
 df_cleaned <- df_raw
@@ -125,7 +124,7 @@ df_cleaned <- df_cleaned[-rows_to_remove, ]
 View(df_cleaned)
 View (df_logrm)
 
-#9.DATA TRANSFORMATION
+#9.data transformation
 #data transformation (normalization)
 
 #Load Iris Dataset
